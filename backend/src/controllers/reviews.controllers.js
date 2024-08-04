@@ -4,7 +4,6 @@ const createReview = async (req, res, next) => {
   try {
     const review = await Review.create(req.body);
     req.io.emit("reviewAdded", review);
-    deleteReview;
     res
       .status(201)
       .json({ success: true, review, message: "Review Created Successfully" });
